@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:fb="http://www.facebook.com/2008/fbml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Research-Silicon Valley Campus - Carnegie Mellon University</title>
+  </head>
+  <body>
+    <h1>Research-Silicon Valley Campus - Carnegie Mellon University</h1>
+    <p><fb:login-button autologoutlink="true"
+    	perms="email,user_birthday,status_update,publish_stream"></fb:login-button></p>
+    <p><fb:like></fb:like></p>
+
+    <div id="fb-root"></div>
+    <br />
+    <div id="user_info"></div>
+    <br />
+    <div id="name"></div>
+    
+    <div id="stream"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({appId: '162733080407298', status: true, cookie: true,
+                 xfbml: true});
+        
+        FB.api('/me', function(response) {
+        	document.getElementById('user_info').style.display = "block";
+    	    document.getElementById('user_info').innerHTML= response.name+'  |  '+
+    	    		response.email+'  |  '+
+    	    		response.birthday;
+    	  });
+              
+      /*  var query = FB.Data.query('select name, uid from user where uid=me()');
+					query.wait(function(rows) {
+					document.getElementById('name').innerHTML =
+					'Your name is ' + rows[0].name;
+					});
+					
+		
+		var stream = FB.Data.query('SELECT post_id, actor_id, target_id, message FROM stream WHERE source_id in (SELECT target_id FROM connection WHERE source_id=me()) AND is_hidden = 0');
+		stream.wait(function(rows) {			
+			document.getElementById('stream').innerHTML = rows[0].message+'<br />'+rows[1].message+'<br />'+rows[2].message+'<br />'+rows[3].message+'<br />'+rows[4].message;
+			
+		});*/
+      };
+      (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = document.location.protocol +
+          '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+      }());
+      
+      
+    </script>
+    
+    
+    
+  </body>
+</html>

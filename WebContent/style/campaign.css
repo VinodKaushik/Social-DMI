@@ -1,0 +1,63 @@
+/* CSS Document */
+
+.campaignListHead{
+background:url("../images/listhead.png") no-repeat scroll center top transparent;
+float:left;
+height:76px;
+width:280px;
+}
+.campaignListTail{
+background:url("../images/listtail.png") no-repeat scroll center top transparent;
+float:left;
+height:76px;
+width:280px;
+}
+.campaignList{
+   font-size:20px;
+   text-align:center;
+   float:left; margin:10px; height:280px; width:230px;
+}
+.ListItem{
+background:url("../images/list_item.png") no-repeat scroll center top transparent;
+float:left;
+height:57px;
+width:280px;
+font-size:23px;
+}
+.ListText, .ListText a{
+background:none;
+padding:5px;
+text-align:center;
+vertical-align:middle;
+margin-top:6px;
+}
+
+.ListText:hover, .ListText a:hover{
+background:#629101;
+border:solid 1px #999999;
+margin-top:6px;
+padding:5px;
+text-align:center;
+vertical-align:middle;
+}
+.keywordList{
+
+text-transform:capitalize;
+}
+.keyword{
+color:#92DAEF;
+   float:left;
+   padding-right:8px;
+   font-weight:bold;
+   font-size:1.4em;
+}
+.key1{ color:#4684EE; }
+.key2{ color:#FF9900; }
+.key3{ color:#666666; }
+.key4{ color:#CB4AC5; }
+.key5{ color:#336699; }
+.key6{ color:#DC3912; }
+.key7{ color:#008000; }
+.key8{ color:#4942CC; }
+.key9{ color:#d6AE00; }
+.key10{ color:#DD4477; }

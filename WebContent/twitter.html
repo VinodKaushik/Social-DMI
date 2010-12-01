@@ -1,0 +1,67 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+    <title>TwitSearch</title> 
+    
+    <style type="text/css"> 
+        div#main{
+            width: 800px;
+            margin: 0 auto;
+            background-color:#99CCCC;
+            padding:10px;
+        }
+    </style> 
+    
+    <script type="text/javascript" src="../jquery-1.2.6.min.js"></script> 
+    
+    <script type="text/javascript"> 
+    $(document).ready(function(){
+        $('form#search').bind("submit", function(e){
+            e.preventDefault();
+            $('#content').html('');
+            
+            var query = urlencode($('input[name="searchTerm"]').val()); //what to search for
+            var rpp = 20; //number of tweets to retrieve
+            
+            $.getJSON('http://search.twitter.com/search.json?callback=?&q='+query+'&rpp='+rpp, function(data){
+                 $.each(data.results, function(i, item){
+                    console.log(item);
+                     var newDiv = '<p><a href="http://www.twitter.com/'+item.from_user+'">'+item.from_user+'</a> - '+item.text+'</p>';
+                     $('#content').append(newDiv);
+                 });
+             });
+        })
+        
+        function urlencode(str) {
+            return escape(str).replace(/\+/g,'%2B').replace(/%20/g, '+').replace(/\*/g, '%2A').replace(/\//g, '%2F').replace(/@/g, '%40');
+        }        
+    })
+    </script> 
+</head> 
+<body> 
+    <div id="main"> 
+        <h2>Search Twitter</h2> 
+        <div> 
+        <form id="search"> 
+            <input type="text" name="searchTerm" /> 
+            <input type="submit" name="submit" value="submit" onclick = document.function()/> 
+        </form> 
+        </div> 
+        <div id="content"> 
+            
+        </div> 
+    </div> 
+    <script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script> 
+<script type="text/javascript"> 
+var pageTracker = _gat._getTracker("UA-3230944-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script> 
+ 
+</body> 
+</html> 

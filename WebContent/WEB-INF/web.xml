@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" 
+		 xmlns="http://java.sun.com/xml/ns/j2ee" 
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<display-name>Social-DMI</display-name>
+	<description>
+      A CMU Silicon Valley Research Initiative
+    </description>
+	
+	<servlet>
+        <servlet-name>controller</servlet-name>
+        <servlet-class>org.cmusv.dmi.controller.Controller</servlet-class>
+        <init-param>
+          <param-name>jdbcDriverName</param-name> 
+	      <param-value>com.mysql.jdbc.Driver</param-value>
+        </init-param>
+        <init-param>
+          <param-name>jdbcURL</param-name> 
+	      <param-value>jdbc:mysql:///cmusvdmi</param-value>
+        </init-param>
+<!--        <init-param>-->
+<!--          <param-name>valid-andrew-id-check</param-name>-->
+<!--          <param-value>false</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--          <param-name>send-mail</param-name>-->
+<!--          <param-value>true</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--          <param-name>smtp-host</param-name>-->
+<!--          <param-value>smtp.gmail.com</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--          <param-name>smtp-port</param-name>-->
+<!--          <param-value>465</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--          <param-name>from-address</param-name>-->
+<!--          <param-value>ev.kaushik@gmail.com</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--          <param-name>user-name-to-send-mail</param-name>-->
+<!--          <param-value>ev.kaushik</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--          <param-name>password-to-send-mail</param-name>-->
+<!--          <param-value></param-value>-->
+<!--        </init-param>-->
+    </servlet>
+<!--	<servlet>-->
+<!--		<description>-->
+<!--		</description>-->
+<!--		<display-name>ExportData</display-name>-->
+<!--		<servlet-name>ExportData</servlet-name>-->
+<!--		<servlet-class>-->
+<!--		com.tminer.controller.ExportData</servlet-class>-->
+<!--		<init-param>-->
+<!--          <param-name>jdbcDriverName</param-name> -->
+<!--	      <param-value>com.mysql.jdbc.Driver</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--          <param-name>jdbcURL</param-name> -->
+<!--	      <param-value>jdbc:mysql:///dmitweets</param-value>-->
+<!--        </init-param>-->
+<!--	</servlet>-->
+    
+    <servlet-mapping>
+        <servlet-name>controller</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>controller</servlet-name>
+        <url-pattern>/start</url-pattern>
+    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--    	<servlet-name>ExportData</servlet-name>-->
+<!--    	<url-pattern>/ExportData</url-pattern>-->
+<!--    </servlet-mapping>-->
+
+    <welcome-file-list>
+        <welcome-file>start</welcome-file>
+    </welcome-file-list>
+</web-app>
